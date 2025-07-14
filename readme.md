@@ -11,21 +11,6 @@ The layout includes a **scrollable inventory grid** and a **vertical hotbar** fi
 - Fully customizable via CSS
 - Responsive layout with smooth hover transitions
 
-## 📂 File Structure
-
-xl_inventory/
-│
-├── html/
-│ ├── index.html # Main inventory layout
-│ ├── css/
-│ │ └── style.css # Inventory & hotbar styling
-│ └── js/
-│ └── main.js # Future JS logic (drag, events)
-│
-├── fxmanifest.lua # FiveM resource manifest
-└── README.md # You're reading this
-
-
 ## 🖼️ UI Overview
 
 - **Inventory (`inv-container`)**  
