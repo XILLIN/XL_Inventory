@@ -7,7 +7,7 @@ The layout includes a **scrollable inventory grid** and a **vertical hotbar** fi
 
 - Grid-based inventory system
 - Scroll support when item list exceeds height
-- Stylish vertical hotbar (8 slots)
+- Stylish vertical hotbar (6 slots)
 - Fully customizable via CSS
 - Responsive layout with smooth hover transitions
 
