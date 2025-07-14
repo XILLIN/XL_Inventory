@@ -22,7 +22,7 @@ body {
     box-shadow: 0 0 15px rgba(0,0,0,0.7);
     padding: 15px 10px;
     display: grid;
-    grid-template-rows: repeat(6, 1fr); /* 8 ช่อง แบ่งเป็นแถวแนวตั้ง */
+    grid-template-rows: repeat(6, 1fr); /* 6 ช่อง แบ่งเป็นแถวแนวตั้ง */
     gap: 12px;
     z-index: 1000;
 }

@@ -21,6 +21,9 @@ The layout includes a **scrollable inventory grid** and a **vertical hotbar** fi
   - 8 slots (can be changed)
   - Ideal for quick-use or keybind items
 
+  ![Inventory UI](https://media.discordapp.net/attachments/1370176477198553172/1394270518919565352/DC47D7AF-BF3F-486E-8460-20AED6E38C57.png?ex=6876331c&is=6874e19c&hm=c38fccc56cf8227318e0235d9aa0aa6a059482b353e692a7252afe3cdbe13151&=&format=webp&quality=lossless)
+
+
 ## 📦 Installation (FiveM Resource)
 
 1. Put the `xl_inventory` folder in your `resources/` directory.
