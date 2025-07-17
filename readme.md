@@ -40,7 +40,7 @@ The layout includes a **scrollable inventory grid** and a **vertical hotbar** fi
 
 ## 🔗 Credits
 
-- UI: Designed by [YourName]
+- UI: Designed by XILLIN & Porza
 - jQuery UI: https://jqueryui.com/
 - Inspired by: NC Inventory, NoPixel, and other modular UIs
 
