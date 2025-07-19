@@ -1,105 +1,187 @@
 body {
-    background-color: transparent;
     margin: 0;
     padding: 0;
     height: 100vh;
-
+    background: transparent;
+    font-family: 'Prompt', 'Segoe UI', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Arial, sans-serif;
 }
 
 .inv-hotbar {
     position: fixed;
-    top: 50%;               /* กลางแนวตั้งหน้าจอ */
-    left: 22%;             /* ห่างจากขอบซ้าย 20px */
+    top: 50%;
+    left: 18%;
     transform: translateY(-50%);
-    width: 70px;            /* กว้างแค่พอใส่ช่อง */
-    height: auto;
-    background-color: #2c2c2c;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.7);
-    padding: 15px 10px;
-    display: grid;
-    grid-template-rows: repeat(6, 1fr); /* 6 ช่อง แบ่งเป็นแถวแนวตั้ง */
-    gap: 12px;
+    width: 100px; /* ให้เท่ากับความกว้างช่อง inventory */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border-radius: 18px;
+    padding: 16px 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
     z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.hotbarcontainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
 }
 
 .hotbar-slot {
-    background-color: #3b3b3b;
-    border: 1px solid #555;
-    height: 70px;
-    border-radius: 8px;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-size: 14px;
-    user-select: none;
-    cursor: pointer;
-    transition: background-color 0.2s;
+    position: relative;
+    transition: 0.2s ease;
+    box-sizing: border-box;
+}
+
+
+.hotbar-slot.active {
+    border-color: #00e0ff;
+    box-shadow: 0 0 8px #00e0ff;
 }
 
 .hotbar-slot:hover {
-    background-color: #4b4b4b;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.03);
 }
 
+.hotbar-footer {
+    height: 5px; /* ปรับขนาดตามต้องการ */
+    width: 100%;
+    background-color: transparent;
+}
+
+/* กล่อง Inventory */
 .inv-container {
-    width: 800px;
-    height: 650px;
-    background: #2c2c2c;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-    padding: 20px;
+    width: 880px;
+    height: 640px;
+    background: rgba(15, 15, 15, 0.85);
+    backdrop-filter: blur(20px);
+    border-radius: 18px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 .inv-head {
-    font-size: 24px;
-    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    color: #ffffff;
     text-align: center;
     margin-bottom: 20px;
 }
 
 .inv-grid {
-    flex: 1;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 10px;
-    max-height: 500px;     
-    overflow-y: auto;      
-    padding-right: 5px;    
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    column-gap: 14px;
+    row-gap: 8px;
+    overflow-y: auto;
+    padding-right: 6px;
+    padding-bottom: 10px;
 }
 
+/* Scrollbar สไตล์ soft */
 .inv-grid::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
 }
-
-.inv-grid::-webkit-scrollbar-track {
-    background: #2c2c2c;
-    border-radius: 10px;
-}
-
 .inv-grid::-webkit-scrollbar-thumb {
-    background-color: #555;
-    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+.inv-grid::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.25);
 }
 
 .inv-slot {
-    background-color: #3b3b3b;
-    border: 1px solid #555;
-    height: 80px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    color: white;
-    font-size: 16px;
-    border-radius: 6px;
-    user-select: none;
-    transition: background 0.2s;
+    align-items: center;
+    color: #fff;
+    font-size: 14px;
+    transition: 0.2s ease;
+    box-sizing: border-box;
 }
 
+
 .inv-slot:hover {
-    background-color: #4b4b4b;
+    background-color: rgba(255, 255, 255, 0.08);
+    transform: scale(1.035);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
+}
+
+/* ไอเท็มในช่อง */
+.inv-slot img {
+    max-height: 40px;
+    margin-bottom: 4px;
+}
+/* จำนวนไอเท็ม */
+.inv-slot .item-count {
+    position: absolute;
+    bottom: 6px;
+    right: 8px;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-weight: 600;
+}
+
+
+.item-count {
+    position: absolute;
+    bottom: 6px;
+    right: 8px;
+    font-size: 12px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+
+.item-slot {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 14px;
+    transition: 0.2s ease;
+    box-sizing: border-box;
+}
+
+.item-slot:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    transform: scale(1.035);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
 }
